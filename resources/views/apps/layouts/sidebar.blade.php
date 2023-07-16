@@ -30,18 +30,18 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item {{ Request::is('apps/items*') ? 'active' : '' }}">
         <a class="nav-link pb-0" href="/apps/items">
-            <i class="far fa-newspaper"></i>
-            <span>Items (Barang)</span></a>
+            <i class="fas fa-box"></i>
+            <span>Data barang</span></a>
     </li>
     <li class="nav-item {{ Request::is('apps/categories*') ? 'active' : '' }}">
         <a class="nav-link pb-0" href="/apps/categories">
-            <i class="far fa-newspaper"></i>
-            <span>Items category</span></a>
+            <i class="fas fa-boxes"></i>
+            <span>Kategori barang</span></a>
     </li>
-    <li class="nav-item {{ Request::is('apps/unit*') ? 'active' : '' }}">
-        <a class="nav-link" href="/apps/unit">
-            <i class="far fa-newspaper"></i>
-            <span>Items type</span></a>
+    <li class="nav-item {{ Request::is('apps/units*') ? 'active' : '' }}">
+        <a class="nav-link" href="/apps/units">
+            <i class="fas fa-box-open"></i>
+            <span>Satuan barang</span></a>
     </li>
 
     
@@ -54,13 +54,18 @@
     <!-- Nav Item - Tables -->
     <li class="nav-item {{ Request::is('apps/item_in*') ? 'active' : '' }}">
         <a class="nav-link pb-0" href="/apps/item_in">
-            <i class="fas fa-list"></i>
-            <span>Item In</span></a>
+            <i class="fas fa-users"></i>
+            <span>Suplier</span></a>
+    </li>
+    <li class="nav-item {{ Request::is('apps/item_in*') ? 'active' : '' }}">
+        <a class="nav-link pb-0" href="/apps/item_in">
+            <i class="fas fa-arrow-right"></i>
+            <span>Barang masuk</span></a>
     </li>
     <li class="nav-item {{ Request::is('apps/item_out*') ? 'active' : '' }}">
         <a class="nav-link" href="/apps/item_out">
-            <i class="fas fa-list"></i>
-            <span>Item Out</span></a>
+            <i class="fas fa-arrow-left"></i>
+            <span>Barang keluar</span></a>
     </li>
             
     
@@ -73,8 +78,13 @@
     </div>
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="/dashboard/myprofile">
+        <a class="nav-link pb-0" href="/dashboard/myprofile">
             <i class="fas fa-user-cog"></i>
+            <span>Profil</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/dashboard/myprofile">
+            <i class="fas fa-user-lock"></i>
             <span>Profil</span></a>
     </li>
 

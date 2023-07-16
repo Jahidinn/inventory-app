@@ -15,4 +15,9 @@ class Unit extends Model
     {
         return $this->hasMany(Items::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'unit_id';
+    }
 }

@@ -12,7 +12,9 @@ class UnitController extends Controller
      */
     public function index()
     {
-        //
+        return view('apps.satuan.index', [
+            'satuan_barang' => Unit::all()
+        ]);
     }
 
     /**
@@ -20,7 +22,9 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('apps.satuan.create', [
+            'satuan_barang' => Unit::all()
+        ]);
     }
 
     /**
@@ -28,7 +32,14 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'unit_id' => 'required|unique:units|max:255',
+        ]);
+
+        Unit::create($validatedData);
+
+        return redirect('/apps/satuan')->with('success', 'New satuan barang has been added!');
     }
 
     /**
@@ -36,7 +47,7 @@ class UnitController extends Controller
      */
     public function show(Unit $unit)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -44,7 +55,13 @@ class UnitController extends Controller
      */
     public function edit(Unit $unit)
     {
-        //
+        if (!auth()->user()) {
+            abort(403);
+        }
+
+        return view('apps.satuan.edit', [
+            'satuan_barang' => $unit
+        ]);
     }
 
     /**
@@ -52,7 +69,19 @@ class UnitController extends Controller
      */
     public function update(Request $request, Unit $unit)
     {
-        //
+        $rules = ['name' => 'required|max:255'];
+
+        //Cek slug
+        if ($request->unit_id != $unit->unit_id) {
+            $rules['unit_id'] = 'required|unique:units|max:255';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        Unit::where('id', $unit->id)
+            ->update($validatedData);
+
+        return redirect('/apps/units')->with('success', 'Satuan barang has been updated!');
     }
 
     /**

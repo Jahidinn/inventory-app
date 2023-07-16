@@ -7,7 +7,7 @@
     <div class="row mx-1">
         <div class="card shadow col m-0 p-0">
             <div class="card-header font-weight-bold text-black">
-                Edit kategori {{ $category->name }}
+                Edit kategori : {{ $category->name }} 
             </div>
             <div class="card-body">
                 <form method="post" action="/apps/categories/{{ $category->category_id }}">
