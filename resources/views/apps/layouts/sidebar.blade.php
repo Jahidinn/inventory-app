@@ -85,7 +85,7 @@
     <li class="nav-item">
         <a class="nav-link" href="/dashboard/myprofile">
             <i class="fas fa-user-lock"></i>
-            <span>Profil</span></a>
+            <span>User</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
