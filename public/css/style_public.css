@@ -1,0 +1,17 @@
+.case-image-post-view {
+    max-height: 300px;
+    overflow:hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.image-post-view{
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.card-image-post{
+    max-height: 200px;
+    overflow:hidden;
+}

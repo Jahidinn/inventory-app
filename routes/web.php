@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppsController;
+use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'autenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/apps', [AppsController::class, 'index'])->middleware('auth');
+Route::resource('/apps/items', ItemsController::class)->middleware('auth');
