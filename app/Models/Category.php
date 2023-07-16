@@ -14,4 +14,9 @@ class Category extends Model
     {
         return $this->hasMany(Items::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'category_id';
+    }
 }

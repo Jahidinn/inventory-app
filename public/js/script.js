@@ -1,3 +1,19 @@
+// Membuat slug kategory dengan jQuery
+var slug = function(str) {
+  var $slug = '';
+  var trimmed = $.trim(str);
+  $slug = trimmed.replace(/[^a-z0-9-]/gi, '-').
+  replace(/-+/g, '-').
+  replace(/^-|-$/g, '');
+  return $slug.toLowerCase();
+}
+
+$('.nama-kategori').keyup(function() {
+  var takedata = $('.nama-kategori').val()
+  $('.kategori-id').val(slug(takedata));
+});
+
+
 /* Dengan Rupiah */
 var dengan_rupiah = document.getElementById('dengan-rupiah');
 dengan_rupiah.addEventListener('keyup', function(e)
@@ -23,14 +39,14 @@ function formatRupiah(angka, prefix)
     return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
 }
 
-// const input_field = document.querySelector('.input-slug');
-// const slug = document.querySelector("#slug");
-
 //Membuat slug pada form (Tanpa cek database)
+// const input_field = document.querySelector('.nama-kategori');
+// const category_id = document.querySelector(".kategori-id");
+
 // input_field.addEventListener("keyup", function() {
 //   let preslug = input_field.value;
 //   preslug = preslug.replace(/ /g,"-");
-//   slug.value = preslug.toLowerCase();
+//   category_id.value = preslug.toLowerCase();
 // });
 
 

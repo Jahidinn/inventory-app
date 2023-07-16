@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppsController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,4 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/apps', [AppsController::class, 'index'])->middleware('auth');
 Route::resource('/apps/items', ItemsController::class)->middleware('auth');
+Route::resource('/apps/categories', CategoryController::class)->middleware('auth');

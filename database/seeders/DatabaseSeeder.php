@@ -24,28 +24,28 @@ class DatabaseSeeder extends Seeder
         ]);
         Category::create([
             'name' => 'Makanan',
-            'slug' => 'makanan'
+            'category_id' => 'makanan'
         ]);
         Category::create([
             'name' => 'Teknologi',
-            'slug' => 'teknologi'
+            'category_id' => 'teknologi'
         ]);
         Category::create([
             'name' => 'Elektronik',
-            'slug' => 'elektronik'
+            'category_id' => 'elektronik'
         ]);
 
         Unit::create([
             'name' => 'Unit',
-            'slug' => 'unit'
+            'unit_id' => 'unit'
         ]);
         Unit::create([
             'name' => 'Kilogram',
-            'slug' => 'kilogram'
+            'unit_id' => 'kilogram'
         ]);
         Unit::create([
             'name' => 'Liter',
-            'slug' => 'liter'
+            'unit_id' => 'liter'
         ]);
 
         Items::factory(20)->create();

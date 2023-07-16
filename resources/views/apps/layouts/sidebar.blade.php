@@ -33,13 +33,13 @@
             <i class="far fa-newspaper"></i>
             <span>Items (Barang)</span></a>
     </li>
-    <li class="nav-item {{ Request::is('dashboard/posts*') ? 'active' : '' }}">
-        <a class="nav-link pb-0" href="/dashboard/posts">
+    <li class="nav-item {{ Request::is('apps/categories*') ? 'active' : '' }}">
+        <a class="nav-link pb-0" href="/apps/categories">
             <i class="far fa-newspaper"></i>
             <span>Items category</span></a>
     </li>
-    <li class="nav-item {{ Request::is('dashboard/posts*') ? 'active' : '' }}">
-        <a class="nav-link" href="/dashboard/posts">
+    <li class="nav-item {{ Request::is('apps/unit*') ? 'active' : '' }}">
+        <a class="nav-link" href="/apps/unit">
             <i class="far fa-newspaper"></i>
             <span>Items type</span></a>
     </li>
@@ -52,13 +52,13 @@
         Transactions
     </div>
     <!-- Nav Item - Tables -->
-    <li class="nav-item {{ Request::is('dashboard/categories*') ? 'active' : '' }}">
-        <a class="nav-link pb-0" href="/dashboard/categories">
+    <li class="nav-item {{ Request::is('apps/item_in*') ? 'active' : '' }}">
+        <a class="nav-link pb-0" href="/apps/item_in">
             <i class="fas fa-list"></i>
             <span>Item In</span></a>
     </li>
-    <li class="nav-item {{ Request::is('dashboard/categories*') ? 'active' : '' }}">
-        <a class="nav-link" href="/dashboard/categories">
+    <li class="nav-item {{ Request::is('apps/item_out*') ? 'active' : '' }}">
+        <a class="nav-link" href="/apps/item_out">
             <i class="fas fa-list"></i>
             <span>Item Out</span></a>
     </li>
