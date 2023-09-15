@@ -5,8 +5,16 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Manajemen barang</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <div>
+            <a href="/export-pdf" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Export PDF</a>
+
+            {{-- <a href="/export-excel" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
+                    class="fas fa-download fa-sm text-white-50"></i> Export EXCL</a> --}}
+
+            <a href="/export-excel/5" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
+                    class="fas fa-download fa-sm text-white-50"></i> Export EXCL</a>
+        </div>
     </div>
 
     <!-- Content Row -->
@@ -25,6 +33,29 @@
             </div>
             <div class="card-body">
                 <a href="/apps/items/create" class="btn btn-success mb-2"> <i class="fas fa-plus"></i> Tambah barang</a>
+                <form action="" method="get">
+                    <div class="form-row">
+                        <div class="form-group col">
+                          <input type="text" class="form-control" name="keyword" placeholder="Cari data .." value="{{ request('keyword'); }}">
+                        </div>
+                        <div class="form-group">
+                            <select class="custom-select" name="category_id">
+                            <option value="">Semua</option>
+                            @foreach ($categories as $category)
+                            @if (request('category_id') == $category->category_id)
+                            <option value="{{ $category->category_id }}" selected>{{ $category->name }}</option>
+                            @else
+                            <option value="{{ $category->category_id }}">{{ $category->name }}</option>
+                            @endif
+                            @endforeach
+    
+                          </select>
+                        </div> 
+                        <div class="form-group col">
+                            <button type="submit" class="btn btn-primary mb-3"><i class="fas fa-search"></i> Cari</button>
+                        </div>
+                      </div>
+                </form>
                 <div class="table-responsive">
                 <table class="table">
                 <thead class="thead-light">
@@ -36,8 +67,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($items as $item)
-                    <th scope="row">{{ $loop->iteration }}</th>
+                    @foreach ($items as $keys => $item)
+                    <th scope="row">{{$items->firstItem() + $keys }}</th>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->item_id }}</td>
                     <td >
@@ -54,6 +85,9 @@
                     <tr>
                 </tbody>
                 </table>
+                <div class="d-flex justify-content-center">
+                    {{ $items->withQueryString()->links() }}
+                </div>
                 </div>
             </div>
             </div>

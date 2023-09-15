@@ -31,3 +31,8 @@ Route::get('/apps', [AppsController::class, 'index'])->middleware('auth');
 Route::resource('/apps/items', ItemsController::class)->middleware('auth');
 Route::resource('/apps/categories', CategoryController::class)->middleware('auth');
 Route::resource('/apps/units', UnitController::class)->middleware('auth');
+
+Route::get('/export-pdf', [ItemsController::class, 'exportPdf'])->middleware('auth');
+Route::get('/export-excel/{category_id}', [ItemsController::class, 'exportExcel'])->middleware('auth');
+
+Route::get('/export', [ItemsController::class, 'exportPdf2'])->middleware('auth');
