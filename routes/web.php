@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppsController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
@@ -36,3 +37,6 @@ Route::get('/export-pdf', [ItemsController::class, 'exportPdf'])->middleware('au
 Route::get('/export-excel/{category_id}', [ItemsController::class, 'exportExcel'])->middleware('auth');
 
 Route::get('/export', [ItemsController::class, 'exportPdf2'])->middleware('auth');
+
+Route::post('/excel-import', [ExcelController::class, 'index']);
+Route::get('/excel-export', [ExcelController::class, 'exportData']);

@@ -14,6 +14,8 @@
 
             <a href="/export-excel/5" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
                     class="fas fa-download fa-sm text-white-50"></i> Export EXCL</a>
+            <a href="/excel-export" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i
+                    class="fas fa-download fa-sm text-white-50"></i> Export EXCL2</a>
         </div>
     </div>
 
