@@ -39,9 +39,14 @@
             <span>Kategori barang</span></a>
     </li>
     <li class="nav-item {{ Request::is('apps/units*') ? 'active' : '' }}">
-        <a class="nav-link" href="/apps/units">
+        <a class="nav-link pb-0" href="/apps/units">
             <i class="fas fa-box-open"></i>
             <span>Satuan barang</span></a>
+    </li>
+    <li class="nav-item {{ Request::is('apps/qr-code*') ? 'active' : '' }}">
+        <a class="nav-link" href="/apps/qr-code">
+            <i class="fas fa-arrow-left"></i>
+            <span>QR Code</span></a>
     </li>
 
     
@@ -66,8 +71,7 @@
         <a class="nav-link" href="/apps/item_out">
             <i class="fas fa-arrow-left"></i>
             <span>Barang keluar</span></a>
-    </li>
-            
+    </li> 
     
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

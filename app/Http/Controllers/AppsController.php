@@ -18,4 +18,9 @@ class AppsController extends Controller
 
         ]);
     }
+
+    public function qrcode()
+    {
+        return view('apps.items.qrcode-reader');
+    }
 }

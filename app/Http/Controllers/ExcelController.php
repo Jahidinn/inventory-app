@@ -28,7 +28,11 @@ class ExcelController extends Controller
             $spreadSheet = new Spreadsheet();
             $sheet = $spreadSheet->getActiveSheet();
             $sheet->getDefaultColumnDimension()->setWidth(20);
-            $sheet->fromArray($customer_data, NULL, 'B8');
+            foreach (range('8', '30') as $columnID) {
+                $sheet->mergeCells('C' . $columnID . ':I' . $columnID);
+            }
+
+            $sheet->fromArray($customer_data, NULL, 'B8', 'D8');
             $sheet->mergeCells('B2:D3');
             $sheet->mergeCells('E2:G2');
             $sheet->mergeCells('E3:G3');
@@ -100,10 +104,10 @@ class ExcelController extends Controller
                 ->setBorderStyle(Border::BORDER_THICK)
                 ->setColor(new Color('0000'));
 
-
+            $buttomBorder = 20 + 10;
             $spreadSheet
                 ->getActiveSheet()
-                ->getStyle('B2:Z29')
+                ->getStyle('B2:Z' . $buttomBorder)
                 ->getBorders()
                 ->getOutline()
                 ->setBorderStyle(Border::BORDER_THICK)
@@ -136,11 +140,12 @@ class ExcelController extends Controller
     function exportData()
     {
         $data = DB::table('items')->orderBy('id', 'DESC')->get();
-        $data_array[] = array("id", "Nama", "Kode", "jsjsjs");
+        $data_array[] = array("id", "Nama", "", "", "", "", "", "", "Kode",);
         foreach ($data as $data_item) {
             $data_array[] = array(
                 'id' => $data_item->id,
                 'name' => $data_item->name,
+                '1' => '', '2' => '', '3' => '', '4' => '', '5' => '', '6' => '',
                 'kode' => $data_item->item_id,
             );
         }
